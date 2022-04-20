@@ -30,14 +30,14 @@ game_title = Label(
     font=('', 48)
 )
 game_title.place(
-    x=utils.weight_prct(25),
+    x=utils.width_prct(25),
     y=0
 )
 
 left_frame = Frame(
     root,
     bg='black',  # change later to black
-    width=utils.weight_prct(25),
+    width=utils.width_prct(25),
     height=utils.height_prct(75)
 )
 left_frame.place(x=0, y=utils.height_prct(25))
@@ -45,12 +45,12 @@ left_frame.place(x=0, y=utils.height_prct(25))
 center_frame = Frame(
     root,
     bg='black',  # change later to black
-    width=utils.weight_prct(75),
+    width=utils.width_prct(75),
     height=utils.height_prct(75)
 )
 
 center_frame.place(
-    x=utils.weight_prct(25),
+    x=utils.width_prct(25),
     y=utils.height_prct(25)
 )
 
