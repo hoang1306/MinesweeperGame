@@ -5,10 +5,12 @@ from tkinter import Button, Label
 from abstract_cell import AbstractCell
 import ctypes
 
+
 class Cell(AbstractCell):
     all = []
     cell_count = settings.CELL_COUNT
     cell_count_label_object = None
+
     def __init__(self, x, y, is_mine=False):
         self.is_mine = is_mine
         self.is_opened = False
@@ -40,10 +42,8 @@ class Cell(AbstractCell):
             font=("", 24)
         )
         Cell.cell_count_label_object = lbl
-        # return lbl
 
-    def left_click_actions(self, event):
-        # print(event)
+    def left_click_actions(self):
         # print("I am left clicked!")
         if self.is_mine:
             self.show_mine()
@@ -55,7 +55,7 @@ class Cell(AbstractCell):
             # if mine count is equal to the cells left count, player won
             if Cell.cell_count == settings.MINES_COUNT:
                 ctypes.windll.user32.MessageBoxW(0, 'Congratulations! You won the game!', 'Game over', 0)
-        
+
         # cancel left and right click events if cell is already opened:
         self.cell_btn_ohject.unbind('<Button-1>')
         self.cell_btn_ohject.unbind('<Button-3>')
@@ -65,6 +65,7 @@ class Cell(AbstractCell):
         for cell in Cell.all:
             if cell.x == x and cell.y == y:
                 return cell
+
     @property
     def surrounded_cells(self):
         cells = [
@@ -80,7 +81,7 @@ class Cell(AbstractCell):
         cells = [
             cell for cell in cells if cell is not None]
         return cells
-    
+
     @property
     def surrounded_cells_mines_length(self):
         counter = 0
@@ -115,11 +116,8 @@ class Cell(AbstractCell):
         ctypes.windll.user32.MessageBoxW(0, 'You click on a mine', 'Game over', 0)
 
         sys.exit()
-        
 
-    def right_click_actions(self, event):
-        # print(event)
-        # print("I am right click")
+    def right_click_actions(self):
         if not self.is_mine_candidate:
             self.cell_btn_ohject.configure(
                 bg='orange'
@@ -130,7 +128,6 @@ class Cell(AbstractCell):
                 bg='SystemButtonFace'
             )
             self.is_mine_candidate = False
-        
 
     @staticmethod
     def randomize_mines():

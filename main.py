@@ -94,7 +94,7 @@ Cell.cell_count_label_object.place(
 
 
 Cell.randomize_mines()
-for c in Cell.all:
-    print(c.is_mine)
+# for c in Cell.all:
+#     print(c.is_mine)
 # run window
 root.mainloop()
