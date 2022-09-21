@@ -43,7 +43,7 @@ class Cell(AbstractCell):
         )
         Cell.cell_count_label_object = lbl
 
-    def left_click_actions(self):
+    def left_click_actions(self, event):
         # print("I am left clicked!")
         if self.is_mine:
             self.show_mine()

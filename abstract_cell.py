@@ -11,7 +11,7 @@ class AbstractCell(ABC):
     def create_cell_count_label(location):
         pass
 
-    def left_click_actions(self):
+    def left_click_actions(self, event):
         pass
 
     def surrounded_cells(self):
